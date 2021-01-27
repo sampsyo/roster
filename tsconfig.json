@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+
+    "target": "ES6",
+    "module": "commonjs",
+
+    "outDir": "build",
+    "sourceMap": true
+  },
+  "files": [
+    "roster.ts"
+  ]
+}
