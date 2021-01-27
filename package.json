@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "build/roster.js",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/roster.js"
+  },
   "devDependencies": {
     "typescript": "^4.1.3"
   },
