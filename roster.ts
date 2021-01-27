@@ -1,6 +1,7 @@
 import { createEventAdapter } from '@slack/events-api';
 import { WebClient } from '@slack/web-api';
 import { AddressInfo } from 'net';
+import arrayShuffle from 'array-shuffle';
 
 const SLACK_SECRET = process.env['SLACK_SIGNING_SECRET']!;
 const SLACK_TOKEN = process.env['SLACK_TOKEN']!;
@@ -29,13 +30,13 @@ slackEvents.on('app_mention', async (event) => {
     }
   }
 
-  // Concoct a message.
-  const msg = names.map(n => `- ${n}`).join('\n');
+  // Concoct and send a response.
+  const msg = arrayShuffle(names).map(n => `- ${n}`).join('\n');
+  console.log(msg);
   slackWeb.chat.postMessage({
     channel: chan,
     text: msg,
   });
-  console.log(msg);
 });
 
 slackEvents.on('error', (error) => {
