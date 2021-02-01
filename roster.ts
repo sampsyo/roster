@@ -26,7 +26,7 @@ slackEvents.on('app_mention', async (event) => {
   for (const res of ress) {
     const user = res.user as any;
     if (!user.is_bot) {
-      names.push(user.name as string);
+      names.push(user.profile.display_name as string);
     }
   }
 
